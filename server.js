@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 var session = require('express-session')
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/webdev')
@@ -38,6 +39,9 @@ app.use(session({
 }));
 
 var userService = require('./services/user.service.server');
+var sectionService = require('./services/section.service.server');
+
 userService(app);
+sectionService(app);
 
 app.listen(4000);
