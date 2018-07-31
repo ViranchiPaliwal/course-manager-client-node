@@ -32,4 +32,4 @@ var sectionService = require('./services/section.service.server');
 userService(app);
 sectionService(app);
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
