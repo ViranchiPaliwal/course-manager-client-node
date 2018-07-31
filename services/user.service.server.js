@@ -35,7 +35,7 @@ module.exports = function (app) {
         var user = req.body;
         return userModel
             .updateUser(user)
-            .then(response = > res.send(response)
+            .then(response => res.send(response)
     )
         ;
     }
@@ -44,7 +44,7 @@ module.exports = function (app) {
         var user = req.session['currentUser'];
         return userModel
             .deleteProfile(user._id)
-            .then(response = > res.send(response)
+            .then(response => res.send(response)
     )
         ;
     }

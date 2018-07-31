@@ -64,7 +64,7 @@ module.exports = function (app) {
         var sectionId = req.params.sectionId;
         return sectionModel
             .findSectionById(sectionId)
-            .then(section = > res.send(section)
+            .then(section => res.send(section)
     )
         ;
     }
@@ -73,10 +73,10 @@ module.exports = function (app) {
         var sectionId = req.params.sectionId;
         sectionModel
             .deleteSection(sectionId)
-            .then(() = > enrollmentModel.removeSection(sectionId)
+            .then(() => enrollmentModel.removeSection(sectionId)
     )
     .
-        then(response = > res.send(response)
+        then(response => res.send(response)
     )
         ;
     }
@@ -85,7 +85,7 @@ module.exports = function (app) {
         var sectionId = req.params.sectionId;
         var section = req.body;
         sectionModel.updateSection(sectionId, section)
-            .then(response = > res.send(response)
+            .then(response => res.send(response)
     )
     }
 
@@ -110,7 +110,7 @@ module.exports = function (app) {
     function getAllSections(req, res) {
         sectionModel
             .findAllSections()
-            .then(sections = > (
+            .then(sections => (
             res.send(sections)
         )
     );
