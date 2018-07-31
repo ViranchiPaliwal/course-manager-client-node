@@ -6,9 +6,6 @@ function findUserByCredentials(credentials) {
     return userModel.findOne(credentials, {username: 1});
 }
 
-function findUserById(userId) {
-    return userModel.findById(userId);
-}
 
 function createUser(user) {
     return userModel.create(user);
@@ -18,11 +15,29 @@ function findAllUsers() {
     return userModel.find();
 }
 
+function updateUser(user) {
+    return userModel.update({
+        _id: user._id
+    }, {
+        $set: user
+    })
+}
+
+function findByUserName(username) {
+    return userModel.findOne({username: username})
+}
+
+function deleteProfile(userId) {
+    return userModel.remove({_id: userId})
+}
+
 var api = {
     createUser: createUser,
     findAllUsers: findAllUsers,
-    findUserById: findUserById,
-    findUserByCredentials: findUserByCredentials
+    findUserByCredentials: findUserByCredentials,
+    updateUser: updateUser,
+    findByUserName: findByUserName,
+    deleteProfile: deleteProfile
 };
 
 module.exports = api;

@@ -3,26 +3,14 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session')
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/webdev')
-
-// app.use(session({
-//     resave: false, saveUninitialized: true,
-//     secret: 'shhh, dont tell anyone'
-// }));
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
-
-var app = express()
+mongoose.connect('mongodb://heroku_4wtxtxxb:6g0suom0q4gftlinrsqlqfl874@ds159651.mlab.com:59651/heroku_4wtxtxxb')
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin",
-        "http://localhost:4200");
+        "https://webdev-client-angular.herokuapp.com");
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods",

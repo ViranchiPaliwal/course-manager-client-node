@@ -18,6 +18,20 @@ function decrementSectionSeats(sectionId) {
     });
 }
 
+function findSectionById(sectionId) {
+    return sectionModel.find({
+        _id: sectionId
+    });
+}
+
+function updateSection(sectionId, section) {
+    return sectionModel.update({
+        _id: sectionId
+    }, {
+        $set: section
+    })
+}
+
 function incrementSectionSeats(sectionId) {
     return sectionModel.update({
         _id: sectionId
@@ -26,9 +40,24 @@ function incrementSectionSeats(sectionId) {
     });
 }
 
+function findAllSections() {
+    return sectionModel.find();
+}
+
+function deleteSection(sectionId) {
+    return sectionModel.remove({
+        _id: sectionId
+    });
+}
+
+
 module.exports = {
     createSection: createSection,
     findSectionsForCourse: findSectionsForCourse,
     decrementSectionSeats: decrementSectionSeats,
-    incrementSectionSeats: incrementSectionSeats
+    incrementSectionSeats: incrementSectionSeats,
+    updateSection: updateSection,
+    findAllSections: findAllSections,
+    findSectionById: findSectionById,
+    deleteSection: deleteSection
 };
